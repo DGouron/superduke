@@ -11,7 +11,7 @@ function ShowAnswer({ answer, question }: IAppProps) {
 
   console.log(answerArray);
   return (
-    <section>
+    <section className="answer__container ">
       <h2>Moi : {question}</h2>
       {answerArray && answerArray.length > 0 ? (
         <h2>Superduke : {answerArray[0]}</h2>

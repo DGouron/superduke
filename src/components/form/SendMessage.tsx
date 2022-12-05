@@ -17,9 +17,8 @@ function SendMessage({ apiKey, answerHandler, questionHandler }: IAppProps) {
 
   const [payload, setPayload] = useState<CompletionPayload>({
     prompt: "",
-    maxTokens: 25,
-    temperature: 0.2,
-    topP: 1,
+    maxTokens: 50,
+    temperature: 0.4,
     n: 1,
   });
 
@@ -55,6 +54,7 @@ function SendMessage({ apiKey, answerHandler, questionHandler }: IAppProps) {
         />
       )}
       <form
+        className="question__form"
         onSubmit={(event: React.FormEvent<HTMLFormElement>) =>
           submitPromptMessage(event)
         }
@@ -63,8 +63,10 @@ function SendMessage({ apiKey, answerHandler, questionHandler }: IAppProps) {
           type="text"
           id="message"
           name="message"
+          className="question__field"
           ref={messageInputRef}
           onChange={(e) => changePromptMessage(e)}
+          placeholder="Ask me a question and press enter"
         />
       </form>
     </section>

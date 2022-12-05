@@ -4,6 +4,7 @@ import "./App.css";
 import Duke from "./components/Duke";
 import SendMessage from "./components/form/SendMessage";
 import ShowAnswer from "./components/answer/ShowAnswer";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const [answer, setAnswer] = useState<string>("");
@@ -24,16 +25,19 @@ function App() {
   };
 
   return (
-    <main className="app">
-      <h1>Superduke ! </h1>
-      <Duke />
-      <ShowAnswer answer={answer} question={question} />
-      <SendMessage
-        apiKey={apiKey}
-        answerHandler={answerHandler}
-        questionHandler={questionHandler}
-      />
-    </main>
+    <div className="app">
+      <main>
+        <h1>Superduke ! </h1>
+        <Duke />
+        <ShowAnswer answer={answer} question={question} />
+        <SendMessage
+          apiKey={apiKey}
+          answerHandler={answerHandler}
+          questionHandler={questionHandler}
+        />
+      </main>
+      <Footer />
+    </div>
   );
 }
 

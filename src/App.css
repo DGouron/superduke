@@ -1,7 +1,6 @@
 #root {
   max-width: 100vw;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 .app {
@@ -15,6 +14,10 @@
   height: 15em;
   padding: 1.5em;
   will-change: filter;
+  transition: filter 1.25s;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.3), 0 0 0.5em rgba(0, 0, 0, 0.3);
+  filter: drop-shadow(0 0 1em #646cffaa);
+  border-radius: 50%;
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
@@ -22,11 +25,37 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
-.response__container {
+.answer__container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem;
   height: auto;
+  box-shadow: 0 0 2em #000000aa;
+  border-radius: 1em;
+  padding: 1em;
+  font-size: 0.7rem;
+  margin-bottom: 1rem;
+  min-width: 100%;
+  max-width: 80vw;
+}
+.question__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  margin-bottom: 1rem;
+  min-width: 100%;
+}
+.question__field {
+  min-width: 300px;
+  height: 15px;
+  box-shadow: 0 0 2em #000000aa;
+  border-radius: 0.5em;
+  padding: 1em;
+  font-size: 1.2rem;
+  background-color: #1a1a1a;
+  border: none;
+  color: #eee;
 }
