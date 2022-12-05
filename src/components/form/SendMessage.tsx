@@ -41,7 +41,6 @@ function SendMessage({ apiKey, answerHandler, questionHandler }: IAppProps) {
   const callbackResponse = (openAIResponse: CompletionResponse) => {
     setPromptMessage(`${promptMessage + openAIResponse.choices[0].text}`);
     answerHandler(openAIResponse.choices[0].text);
-    console.log(openAIResponse);
   };
 
   return (
