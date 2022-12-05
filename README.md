@@ -1,3 +1,3 @@
 # superduke
 
-All images are generated sugin the Dall-E IA model from OpenAI.
+All images are generated using the Dall-E IA model from OpenAI.
