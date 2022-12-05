@@ -1,34 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react";
+import dukeLogo from "./assets/dukes/duke3.webp";
+import "./App.css";
+import Duke from "./components/Duke";
+import SendMessage from "./components/form/SendMessage";
+import ShowAnswer from "./components/answer/ShowAnswer";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [answer, setAnswer] = useState<string>("");
+  const [question, setQuestion] = useState<string>("");
+
+  let faviconLink = document.querySelector(
+    "link[rel*='icon']"
+  ) as HTMLLinkElement;
+  faviconLink.href = dukeLogo;
+  const apiKey = (import.meta.env.VITE_OPENAI_API_KEY as string) || "";
+
+  const answerHandler = (openAIResponse: string) => {
+    setAnswer(openAIResponse);
+  };
+
+  const questionHandler = (question: string) => {
+    setQuestion(question);
+  };
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <main className="app">
+      <h1>Superduke ! </h1>
+      <Duke />
+      <ShowAnswer answer={answer} question={question} />
+      <SendMessage
+        apiKey={apiKey}
+        answerHandler={answerHandler}
+        questionHandler={questionHandler}
+      />
+    </main>
+  );
 }
 
-export default App
+export default App;
